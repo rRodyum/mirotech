@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MIROTECH binek araç yan aynaları ve ayna kapakları. Marka, model ve parça koduyla aracınıza uygun ürünü bulun.">
+  <title>MIROTECH | Binek Araç Yan Aynaları ve Ayna Kapakları</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="assets/model-viewer.min.js"></script>
+  <script src="products.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#urunler">Ürünlere geç</a>
+  <header class="header" id="baslangic">
+    <div class="wrap header-inner">
+      <a href="#baslangic" class="brand" aria-label="MIROTECH ana sayfa"><img src="assets/logo.webp" alt="MIROTECH" width="178" height="38"></a>
+      <nav aria-label="Ana menü">
+        <a href="#urunler" data-category="mirror">Yan aynalar</a>
+        <a href="#urunler" data-category="cover">Ayna kapakları</a>
+      </nav>
+      <a class="button header-button" href="#urunler" data-category="all">Ürün bul <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">BİNEK ARAÇ AYNA SİSTEMLERİ</p>
+          <h1 id="hero-title">Aracınıza uygun<br><em>yan ayna.</em></h1>
+          <p class="intro">Komple yan aynalar ve ayna kapakları. Marka, model veya OEM numarasıyla aradığınız ürünü bulun.</p>
+          <div class="actions">
+            <a class="button primary" href="#urunler" data-category="all">Ürünleri keşfet <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img id="hero-poster" src="assets/hero-kapak.png" alt="Peugeot 3008 yan aynasının kapak tarafı" fetchpriority="high">
+          <model-viewer id="hero-mirror" src="assets/peugeot-3008-mirror.glb"
+            alt="Peugeot 3008 yan aynasının 3B modeli" camera-controls disable-zoom
+            interaction-prompt="none" touch-action="pan-y" loading="eager"
+            camera-orbit="30deg 77deg auto" field-of-view="28deg"
+            rotation-per-second="25deg" auto-rotate-delay="700"></model-viewer>
+          <figcaption class="hero-controls">
+            <span>Peugeot 3008</span>
+            <button type="button" id="hero-toggle" aria-label="Dönüşü duraklat" hidden>Ⅱ</button>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="wrap products" id="urunler" aria-labelledby="product-title">
+      <div class="section-heading">
+        <h2 id="product-title">Ürünler</h2>
+        <div class="tabs" aria-label="Ürün tipi">
+          <button type="button" data-type="all" aria-pressed="true">Tümü</button>
+          <button type="button" data-type="mirror" aria-pressed="false">Yan aynalar</button>
+          <button type="button" data-type="cover" aria-pressed="false">Ayna kapakları</button>
+        </div>
+      </div>
+      <div class="filters">
+        <label class="search-field"><span>Model, parça kodu veya OEM No</span><input id="search" type="search" placeholder="Örn. Corolla veya 8794002F70"></label>
+        <label><span>Araç markası</span><select id="brand-filter"><option value="">Tüm markalar</option></select></label>
+        <label><span>Araç modeli</span><select id="model-filter"><option value="">Tüm modeller</option></select></label>
+        <label><span>Montaj yönü</span><select id="side-filter"><option value="">Sol ve sağ</option><option>Sol</option><option>Sağ</option></select></label>
+      </div>
+      <p class="result" id="result" aria-live="polite"></p>
+      <div id="vehicle-results" class="vehicle-results" hidden></div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="more" id="more" hidden><button type="button" class="button outline" id="load-more">Daha fazla ürün göster <span aria-hidden="true">↓</span></button></div>
+      <noscript>Ürünleri görüntülemek için JavaScript’i etkinleştirin.</noscript>
+    </section>
+  </main>
+  <footer class="footer" id="iletisim">
+    <div class="wrap">
+      <div class="footer-contact">
+        <div>
+          <a class="brand footer-brand" href="#baslangic" aria-label="MIROTECH ana sayfa"><img src="assets/logo.webp" alt="MIROTECH" width="156" height="33" loading="lazy"></a>
+          <h2>İletişim</h2>
+          <a class="footer-phone" href="tel:+905389359024">+90 538 935 90 24</a>
+        </div>
+        <div>
+          <p class="footer-company">STETKO OTOMOTİV SAN. VE TİC. LTD. ŞTİ.</p>
+          <address>Esentepe Mah. Büyükdere Cad. Levent<br>No 199/6, Şişli / İstanbul</address>
+          <p class="footer-tax">Zincirlikuyu Vergi Dairesi · 7811168142</p>
+        </div>
+      </div>
+      <div class="footer-inner">
+        <p>Site Ediz Bektaş tarafından tasarlanmıştır.</p>
+        <a href="#baslangic">Yukarı dön ↑</a>
+      </div>
+    </div>
+  </footer>
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="dialog-bar">
+      <div><p id="detail-type" class="eyebrow"></p><h2 id="detail-title" tabindex="-1" autofocus></h2></div>
+      <form method="dialog"><button class="close" aria-label="Ürün detayını kapat">×</button></form>
+    </div>
+    <div class="dialog-body">
+      <div class="detail-photo"><img id="detail-image" alt=""></div>
+      <div class="detail-content">
+        <dl class="detail-facts">
+          <div><dt>Parça kodu</dt><dd id="detail-code"></dd></div>
+          <div><dt>Montaj yönü</dt><dd id="detail-side"></dd></div>
+          <div class="oem-fact"><dt>OEM No</dt><dd id="detail-oem"></dd></div>
+        </dl>
+        <h3>Uyumlu araçlar</h3>
+        <ul id="detail-fit"></ul>
+        <div id="detail-features"><h3>Özellikler</h3><ul id="detail-specs" class="tags"></ul></div>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
